@@ -24,7 +24,7 @@ public class NormalInsert {
                     .append("','").append(emp.getEmail()).append("',").append(emp.getD_id()).append(")").toString();
 
             String deptSql = new StringBuilder("insert into `tbl_dept`(`dept_name`,`age`,`desc`) values ('")
-                    .append(dept.dept_name).append("',").append(dept.age).append(",'")
+                    .append(dept.name).append("',").append(dept.age).append(",'")
                     .append(dept.desc).append("')").toString();
 
            // System.out.println(empSql);

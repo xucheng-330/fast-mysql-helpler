@@ -42,16 +42,6 @@ public class FastMysqlClientTest {
                 enableTransferQuotes(false).//字符转译 '-->\' ，字符串中带有单引号需配置为true，影响性能
                 build();
 
-        //
-        client.fastInsert(null, new AsyncCallback() {
-            @Override
-            public void callback(AsyncResultFuture future,
-                                 boolean result, Throwable cause) {
-
-            }
-        });
-
-
         long globalStart = System.currentTimeMillis();
         for (int i = 0; i < threadCount; i++) {
             new Thread(new Runnable() {
@@ -60,7 +50,7 @@ public class FastMysqlClientTest {
                     for (int i = 0; i < perThreadTaskCount; i++) {
                         try {
                             Emp m1 = new Emp(null, "成哥" + i, "M", "xucheng@qq.com", 100l);
-                            Dept dept = new Dept("技术部fgdgregergergergdfgergegddfgfdgdfgfdgdfgrgregregdfgegergergergergereffqwwddgrgrhry" ,145,"多好的一个技术部啊，为什么还有这么多想法呢。");
+                            Dept dept = new Dept("技术部" ,145,"多好的一个技术部啊，为什么还有这么多想法呢。");
 
                             client.startMultiFastInsert().add(m1).
                                     add(dept).
