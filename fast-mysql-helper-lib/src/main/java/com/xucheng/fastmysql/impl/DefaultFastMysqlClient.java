@@ -24,7 +24,7 @@ public class DefaultFastMysqlClient implements FastMysqlClient {
 
     private ArrayBlockingQueue<DefaultAsyncResultFuture> queue = new ArrayBlockingQueue<>(10000);
 
-    private Executor threadPool = Executors.newFixedThreadPool(32);
+    private Executor threadPool = Executors.newCachedThreadPool();
 
     private Thread scheduleThread = new Thread(new Runnable() {
         @Override

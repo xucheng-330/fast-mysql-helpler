@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="fast-mysql-helper-lib" />
+        <module name="fast-mysql-helper" />
         <module name="fast-mysql-helper-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fast-mysql-help-lib" target="1.8" />
+      <module name="fast-mysql-helper" target="1.8" />
       <module name="fast-mysql-helper-demo" target="1.8" />
       <module name="fast-mysql-helper-lib" target="1.8" />
     </bytecodeTargetLevel>

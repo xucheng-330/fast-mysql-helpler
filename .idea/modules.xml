@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/fast-mysql-helper.iml" filepath="$PROJECT_DIR$/fast-mysql-helper.iml" />
       <module fileurl="file://$PROJECT_DIR$/fast-mysql-helper-demo/fast-mysql-helper-demo.iml" filepath="$PROJECT_DIR$/fast-mysql-helper-demo/fast-mysql-helper-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/fast-mysql-helper-lib/fast-mysql-helper-lib.iml" filepath="$PROJECT_DIR$/fast-mysql-helper-lib/fast-mysql-helper-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fast-mysql-helpler.iml" filepath="$PROJECT_DIR$/fast-mysql-helpler.iml" />
     </modules>
   </component>
 </project>

@@ -5,8 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xucheng</groupId>
-    <artifactId>fast-mysql-helper-lib</artifactId>
+    <artifactId>fast-mysql-helper</artifactId>
     <version>1.0-RELEASE</version>
 
+    <modules>
+        <module>fast-mysql-helper-lib</module>
+        <module>fast-mysql-helper-demo</module>
+    </modules>
 
 </project>
