@@ -24,21 +24,33 @@ public class FastMysqlClientTest {
     @Test
     public void testFastMysqlClient() throws InterruptedException, IOException {
 
+        //创建数据源对象，注意参数characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl("jdbc:mysql://localhost:3306/fast_mysql_demo?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true");
         datasource.setUsername("root");
         datasource.setPassword("123456");
         datasource.setDriverClassName("com.mysql.jdbc.Driver");
 
+        //实例化FastMysqlClient
         final FastMysqlClient client = new FastMysqlClientBuilder().
-                dataSource(datasource).
-                registerEntity(Emp.class).
+                dataSource(datasource).//设置数据源
+                registerEntity(Emp.class).//注册实体类
                 registerEntity(Dept.class).
-                showSQL(false).
-                batchCount(100).
-                batchInterval(2).
-                enableTransferQuotes(false).//是否转译字符串的单引号，默认不转译
+                showSQL(false).//设置是否打印SQL
+                batchCount(100).//重点：每次批量插入的事务数
+                batchInterval(2).//重点：批次的间隔时间，影响响应延迟
+                enableTransferQuotes(false).//字符转译 '-->\' ，字符串中带有单引号需配置为true，影响性能
                 build();
+
+        //
+        client.fastInsert(null, new AsyncCallback() {
+            @Override
+            public void callback(AsyncResultFuture future,
+                                 boolean result, Throwable cause) {
+
+            }
+        });
+
 
         long globalStart = System.currentTimeMillis();
         for (int i = 0; i < threadCount; i++) {
