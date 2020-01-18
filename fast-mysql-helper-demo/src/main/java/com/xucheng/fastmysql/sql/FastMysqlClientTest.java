@@ -25,7 +25,7 @@ public class FastMysqlClientTest {
     public void testFastMysqlClient() throws InterruptedException, IOException {
 
         DruidDataSource datasource = new DruidDataSource();
-        datasource.setUrl("jdbc:mysql://localhost:3306/ssm_crud?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true");
+        datasource.setUrl("jdbc:mysql://localhost:3306/fast_mysql_demo?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true");
         datasource.setUsername("root");
         datasource.setPassword("123456");
         datasource.setDriverClassName("com.mysql.jdbc.Driver");
@@ -48,7 +48,7 @@ public class FastMysqlClientTest {
                     for (int i = 0; i < perThreadTaskCount; i++) {
                         try {
                             Emp m1 = new Emp(null, "成哥" + i, "M", "xucheng@qq.com", 100l);
-                            Dept dept = new Dept("技术部fgdgregergergergdfgergegddfgfdgdfgfdgdfgrgregregdfgegergergergergereffqwwddgrgrhry" ,null,"好一个技术部！！！！！");
+                            Dept dept = new Dept("技术部fgdgregergergergdfgergegddfgfdgdfgfdgdfgrgregregdfgegergergergergereffqwwddgrgrhry" ,145,"多好的一个技术部啊，为什么还有这么多想法呢。");
 
                             client.startMultiFastInsert().add(m1).
                                     add(dept).
