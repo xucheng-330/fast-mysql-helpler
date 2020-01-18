@@ -17,8 +17,11 @@ public class FastMysqlClientTest {
 
     private AtomicLong count = new AtomicLong(0);
 
+    //模拟10个线程提交事务
     private int threadCount = 10;
-    private int perThreadTaskCount = 1;
+    //每个线程执行100000个事务
+    private int perThreadTaskCount = 100000;
+    //总计执行事务数 100万
     private int totalTaskCount = perThreadTaskCount*threadCount;
 
     @Test
@@ -37,8 +40,8 @@ public class FastMysqlClientTest {
                 registerEntity(Emp.class).//注册实体类
                 registerEntity(Dept.class).
                 showSQL(false).//设置是否打印SQL
-                batchCount(100).//重点：每次批量插入的事务数
-                batchInterval(2).//重点：批次的间隔时间，影响响应延迟
+                batchCount(500).//重点：每次批量插入的事务数
+                batchInterval(6).//重点：批次的间隔时间，影响响应延迟
                 enableTransferQuotes(false).//字符转译 '-->\' ，字符串中带有单引号需配置为true，影响性能
                 build();
 
@@ -73,9 +76,7 @@ public class FastMysqlClientTest {
             }).start();
         }
 
-
-
-
+        //等待所有事务执行完毕
         while (!(totalTaskCount==count.intValue())){
             Thread.sleep(1000);
             System.out.println(count.longValue());

@@ -17,15 +17,18 @@ public class SlowMysqlClientTest {
 
     private AtomicLong count = new AtomicLong(0);
 
+    //20个线程一起提交事务
     private int threadCount = 20;
+    //每个线程提交3000个事务
     private int perThreadTaskCount = 3000;
+    //总计提交60000个事务
     private int totalTaskCount = perThreadTaskCount*threadCount;
 
     @Test
     public void testFastMysqlClient() throws InterruptedException, IOException {
 
         DruidDataSource datasource = new DruidDataSource();
-        datasource.setUrl("jdbc:mysql://localhost:3306/ssm_crud?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true");
+        datasource.setUrl("jdbc:mysql://localhost:3306/fast_mysql_demo?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true");
         datasource.setUsername("root");
         datasource.setPassword("123456");
         datasource.setDriverClassName("com.mysql.jdbc.Driver");
