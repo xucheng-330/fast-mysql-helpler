@@ -33,7 +33,7 @@ public class SlowMysqlClientTest {
         datasource.setPassword("123456");
         datasource.setDriverClassName("com.mysql.jdbc.Driver");
 
-        NormalInsert normalInsert = new NormalInsert(datasource);
+        final NormalInsert normalInsert = new NormalInsert(datasource);
 
 
         long globalStart = System.currentTimeMillis();

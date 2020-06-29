@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface FastMysqlClient {
 
-    public AsyncResultFuture fastInsert(Object request, AsyncCallback... callback);
-    public AsyncResultFuture startMultiFastInsert();
-    public List<QpsTaskInfo> recentlyQPS();
+    AsyncResultFuture fastInsert(Object request, AsyncCallback... callback);
+    AsyncResultFuture startMultiFastInsert();
+    List<QpsTaskInfo> recentlyQPS();
 
-    public static interface BatchRequestComplete{
+    interface BatchRequestComplete{
         void callback(AsyncResultFuture future);
     }
 }

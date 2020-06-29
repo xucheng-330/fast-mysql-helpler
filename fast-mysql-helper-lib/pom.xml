@@ -4,9 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xucheng</groupId>
+    <groupId>com.github.xucheng-330</groupId>
     <artifactId>fast-mysql-helper-lib</artifactId>
     <version>1.0-RELEASE</version>
+    <name>fast-mysql-helper-lib</name>
+    <description>fast-mysql-helper-lib is mysql insert faster!</description>
+    <url>https://github.com/xucheng-330/fast-mysql-helpler</url>
+    <!--<version>1.0-SNAPSHOT</version>-->
+
+
 
 
 </project>
